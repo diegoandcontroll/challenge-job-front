@@ -15,7 +15,6 @@ import {
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
-import React, { ReactNode } from 'react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useHistory, Link } from 'react-router-dom';
 export const Header = () => {
@@ -25,27 +24,7 @@ export const Header = () => {
     { label: 'Home', path: '/' },
     { label: 'About me', path: '/about' },
   ];
-  function handleFunction(value: any) {
-    if (value[0] === 'Home') {
-      history.push('/');
-    } else if (value[1] === 'About me') {
-      history.push('/about');
-    }
-  }
-  // const NavLink = ({ children }: { children: ReactNode }) => (
-  //   <Link
-  //     px={2}
-  //     py={1}
-  //     rounded={'md'}
-  //     _hover={{
-  //       textDecoration: 'none',
-  //       bg: useColorModeValue('gray.700', 'gray.700'),
-  //     }}
-  //     onClick={() => handleFunction(Links)}
-  //   >
-  //     {children}
-  //   </Link>
-  // );
+
   return (
     <>
       <Box bg={useColorModeValue('gray.700', 'gray.900')} px={4} color='gray.300'>

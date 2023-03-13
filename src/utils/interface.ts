@@ -7,11 +7,11 @@ export interface Identification {
 export interface Transaction {
   id: string;
   status: string;
-  createdAt: string;
-  updatedAt: string;
-  value: number;
-  discount_value: number;
-  freight: number;
+  createdAt: Date;
+  updatedAt: Date;
+  value: string;
+  discount_value?: any;
+  freight?: any;
   freight_type: string;
   payment_type: string;
   payment_card_brand?: any;
@@ -24,7 +24,7 @@ export interface Transaction {
   pix_ref?: any;
   pix_expiration_date?: any;
   pix_creation_date?: any;
-  pix_url: string;
+  pix_url?: any;
   is_upsell?: any;
 }
 
@@ -33,7 +33,7 @@ export interface Producer {
   name: string;
   document: string;
   email: string;
-  tel: string;
+  tel?: any;
 }
 
 export interface Customer {
@@ -53,12 +53,12 @@ export interface Comission {
 export interface Metadata {
   id: string;
   affiliate_id?: any;
-  utm_source: string;
-  utm_medium: string;
-  utm_campaign: string;
+  utm_source?: any;
+  utm_medium?: any;
+  utm_campaign?: any;
 }
 
-export interface Sale {
+export interface Item {
   id: string;
   identification: Identification;
   transaction: Transaction;
@@ -68,6 +68,15 @@ export interface Sale {
   metadata: Metadata;
 }
 
+export interface Meta {
+  totalItems: number;
+  itemCount: number;
+  itemsPerPage: number;
+  totalPages: number;
+  currentPage: number;
+}
+
 export interface RootObject {
-  sales: Sale;
+  items: Item[];
+  meta: Meta;
 }
